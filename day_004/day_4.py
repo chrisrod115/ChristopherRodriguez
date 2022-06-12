@@ -35,7 +35,7 @@ print(game_images[user_choice])
 
 comp_choice = random.randint(0,2)
 print("Computers Choice is: ")
-print(comp_choice)
+print(game_images[comp_choice])
 
 if user_choice >= 3 or user_choice < 0: 
   print("You typed an invalid number, you lose!") 
