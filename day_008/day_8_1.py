@@ -3,9 +3,9 @@
 # Write 3 print statements inside the function.
 # Call the greet() function and run your code.
 
-def greet():
-    print("hello")
-    print("yall")
-    print("now this is it")
+def greet(name):
+    print(f"hello {name}")
+    print(f"yall{name}")
+    print(f"now this is it {name}")
 
-greet()
+greet(input("type in your name: "))
