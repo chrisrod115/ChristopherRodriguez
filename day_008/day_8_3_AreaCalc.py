@@ -1,7 +1,7 @@
 #Write your code below this line 👇
 import math
 def paint_calc(height,width,cover):
-    num_cans = int(height+width)/int(cover)
+    num_cans = (height*width)/(cover)
     return print(f"you will need minimum: {num_cans} therefore: {math.ceil(num_cans)} cans of paint for this project")
 
 
