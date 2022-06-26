@@ -6,13 +6,26 @@ shift = int(input("Type the shift number:\n"))
 
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
-def encrypt(user_t):
-    store = []
-    for letter in user_t:
-        for i in range(alphabet):
-            store += i + shift
-    print(store)
-encrypt(user_t=text)
+def encrypt(user_text,user_shift):
+    encrypt_str = ""
+    for letter in user_text:
+        position = alphabet.index(user_text)
+        new_position = position + user_shift
+        encrypt_str += new_position
+    print(encrypt_str)
+
+
+
+    """_steps_
+        1. Gather the user input 
+        2. Index through with a for loop 
+        3. Find the index of the alphabet 
+        4. Take the shift number and move it in the alphabet 
+        5. Keep that same index value and add the shift number
+    """
+        
+
+               
 #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
 
 #e.g. 
