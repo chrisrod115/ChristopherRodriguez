@@ -1,11 +1,6 @@
-from xml.dom import UserDataHandler
-
-
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+from replit import clear
+clear()
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
@@ -43,7 +38,7 @@ def decrypt(user_text,user_shift):
         decrypt_str += alphabet[new_position]
     print(decrypt_str)
 """
-decrypt(user_text=text,user_shift=shift)
+## decrypt(user_text=text,user_shift=shift)
   #TODO-2: Inside the 'decrypt' function, shift each letter of the 'text' *backwards* in the alphabet by the shift amount and print the decrypted text.  
   #e.g. 
   #cipher_text = "mjqqt"
@@ -59,8 +54,29 @@ def encrypt_decrypt(user_text,user_shift,user_dir):
     if user_dir == "decode":
         for letter in user_text:
             position = alphabet.index(letter)
-            new_position = position + user_shift
+            ##user_shift *= -1
+            new_position = position + (user_shift*-1)    
             encrypt_str += alphabet[new_position]
         print(encrypt_str)
+    elif user_dir == "encode":
+        for letter in user_text:
+            position = alphabet.index(letter)
+            new_position = position + user_shift    
+            encrypt_str += alphabet[new_position]
+        print(encrypt_str)
+    else: 
+        print("not an option try again")
+        
 
-encrypt_decrypt(user_text=text,user_shift=shift,user_dir=direction)
+
+encoding_text = True
+while encoding_text != False:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt or 'end' to exit:\n")
+    if direction == "end":
+        print("goodbye")
+        encoding_text = False
+        exit
+    else: 
+        text = input("Type your message:\n").lower()
+        shift = int(input("Type the shift number:\n"))
+        encrypt_decrypt(user_text=text,user_shift=shift,user_dir=direction)

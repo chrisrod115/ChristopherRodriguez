@@ -23,7 +23,10 @@ encrypt(user_text=text,user_shift=shift)
     4. Take the shift number and move it in the alphabet 
     5. Keep that same index value and add the shift number
 """
-        
+"""
+    _steps_
+    
+"""        
 
                
 #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
