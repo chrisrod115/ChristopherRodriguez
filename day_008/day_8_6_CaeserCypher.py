@@ -1,7 +1,7 @@
 from replit import clear
 clear()
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
+ 
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 
 """
@@ -77,6 +77,8 @@ while encoding_text != False:
         encoding_text = False
         exit
     else: 
+        clear()
         text = input("Type your message:\n").lower()
+        print(f"\nword you are {direction}: {text}")
         shift = int(input("Type the shift number:\n"))
         encrypt_decrypt(user_text=text,user_shift=shift,user_dir=direction)
