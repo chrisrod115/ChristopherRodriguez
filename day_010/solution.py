@@ -1,4 +1,3 @@
-from Day_11_Capstone.art import logo
 from replit import clear
 
 def add(n1,n2):

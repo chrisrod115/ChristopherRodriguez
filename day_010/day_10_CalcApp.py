@@ -1,6 +1,9 @@
+from ast import operator
 from replit import clear
-from art import logo 
+from art import logo
 
+
+""" Initial attempt at creating a calculator application.
 def adding(num1,num2):
     adding_result = num1+num2
     return print(adding_result)
@@ -42,4 +45,42 @@ while calculating != False:
             calculating = False
         else:
             continue
+            """
+def add(a,b):
+    return f"Result is {a+b}"
+def subtract(a,b):
+    return f"Result is {a-b}"
+def multiply(a,b):
+    return f"Result is {a*b}"
+def divide(a,b):
+    return f"Result is {a/b}"
+
+calculating = True
+while calculating!= False:
+    clear()
+    num1 = int(input("First Number: "))
+    num2 = int(input("Second Number: "))
+    print("Choose and operator:")
     
+    operations = {
+    "+" : add(a=num1,b=num2),
+    "-" : subtract(a=num1,b=num2),
+    "*" : multiply(a=num1,b=num2),
+    "/" : divide(a=num1,b=num2),
+    }
+    for i in operations:
+        print(i)
+    user_operator = input("\nChoice: ")
+    print(operations[user_operator])
+    calc_again = input("Calculate again? 'yes' or 'no': ")
+    if calc_again == "yes":
+        continue
+    elif calc_again == "no":
+        calculating = False
+    else:
+        print("try again")
+        
+
+    
+    
+
