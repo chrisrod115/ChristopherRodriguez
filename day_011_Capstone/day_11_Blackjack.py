@@ -2,6 +2,7 @@
 This program is a BlackJack gambling game. 
 """
 import random
+from art import logo
 from replit import clear
 clear()
 cards = {
@@ -16,11 +17,10 @@ def shuffle_init_cards():
     cards["dealer_cards"] = []
     num_cards = 2
     for i in range(num_cards):
-        shuffle_deck = random.choice(cards["deck"])
-        cards["user_cards"].append(shuffle_deck)
+        cards["user_cards"].append(random.choice(cards["deck"]))
     for i in range(num_cards):
-        dealer_deck = random.choice(cards["deck"])
-        cards["dealer_cards"].append(dealer_deck)
+        cards["dealer_cards"].append(random.choice(cards["deck"]))
+    print(logo)
     print("Your cards are: ", cards["user_cards"])
     print(f"Dealer is showing: ",cards["dealer_cards"][1])
     
@@ -29,10 +29,15 @@ def hit_or_stay():
     if user_input_hit_or_stay == "hit":
         add_one_card = random.choice(cards["deck"])
         cards["user_cards"].append(add_one_card)
+        print(cards["user_cards"])
+        hit_or_stay()
+    elif user_input_hit_or_stay == "stay":
+        return
         
 def winner_or_looser():
     if sum(cards["user_cards"]) > 21: 
         print(f"\nYou went over 21 {cards['user_cards']} you loose!")
+        print("Dealers cards: ", cards["dealer_cards"])
     elif sum(cards["dealer_cards"]) > 21: 
         print(f"Dealer busts {cards['dealer_cards']} you are the winner!")
     else:
