@@ -13,15 +13,34 @@ from game_data import data
 from replit import clear
 from art import logo,vs
 clear()
-h_l_dict = {
+higher_lower = {
     "A": "Higher",
     "B": "Lower",
 }
 comp_a_gen = random.choice(data)
 comp_b_gen = random.choice(data)
-
-print(logo)
-print(f"Compare A: {comp_a_gen['name']}, a {comp_a_gen['description']},from {comp_a_gen['country']}")
-print(vs)
-print(f"Compare B: {comp_b_gen['name']}, a {comp_b_gen['description']},from {comp_b_gen['country']}")
-user_choice = input(str("Who has more followers: 'A' or 'B'? ")).upper()
+def checker(comp):
+    if higher_lower["A"] == comp:
+        if comp_a_gen == comp_b_gen:
+            return "go"
+        elif comp_a_gen != comp_b_gen:
+            return "stop"
+        else:
+            return "not an option"
+    elif higher_lower["B"] == comp:
+        return "stop"
+    
+playing = True
+while playing != False:
+    print(logo)
+    print(f"Compare A: {comp_a_gen['name']}, a {comp_a_gen['description']},from {comp_a_gen['country']}")
+    print(vs)
+    print(f"Compare B: {comp_b_gen['name']}, a {comp_b_gen['description']},from {comp_b_gen['country']}")
+    user_choice = input(str("Who has more followers: 'A' or 'B'? ")).upper()
+    checker(comp= user_choice)
+    if checker(comp=user_choice) == 'go':
+        continue
+    elif checker(comp=user_choice) == 'stop':
+        playing = False
+    elif checker(comp = user_choice) == 'not an option':
+        print('this is not an option')
