@@ -23,7 +23,8 @@ latte = MENU['latte']
 cappuccino = MENU['cappuccino']
 cost = MENU['cost']
 
-def make_coffee():
+def make_coffee(coffee):
+    coffee['ingredients']
     
     
     
