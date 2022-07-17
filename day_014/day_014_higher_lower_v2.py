@@ -14,17 +14,42 @@ from art import logo,vs
 from game_data import data
 from replit import clear
 
+
 def data_format(compare):
+    """The following function imports a dicitonary 
+    and separates the data for use of either choice a
+    or choice b of the data
+
+    Args:
+        compare (dict): dictionary from the game_data file
+
+    Returns:
+        string: The string that is returned is a name, description, and a country.
+    """
     name = compare['name']
     description = compare ['description']
     country = compare['country']
     return f"{name}, a {description}, from {country}"
 
+
 def checker(comp_a,comp_b,guess):
+    """The following function will compare two follower counts from the 
+    game_data python file. 
+
+    Args:
+        comp_a (int): Follower count for the first user
+        comp_b (int): Follower count for the first user
+        guess (string): Either an upper 'A' or 'B'
+
+    Returns:
+        bool: Returns either True or False
+    """
     if comp_a>comp_b:
         return guess == "A"
     else:
         return guess == "B"
+    
+    
 count = 0
 playing = True
 while playing != False:
