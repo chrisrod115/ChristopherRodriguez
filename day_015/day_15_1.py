@@ -1,5 +1,5 @@
 from replit import clear
-from coffee_menu import MENU, resources
+from coffee_menu import c_menu, resources
 
 """
 To_do_list:
@@ -12,20 +12,49 @@ To_do_list:
 3. print out, feedback for the current state that you are in
 use drawio states
 """
+clear()
+espresso = c_menu['espresso']
+latte = c_menu['latte']
+cappuccino = c_menu['cappuccino']
+amount = resources
+print(amount)
+
 
 def report():
     return "report:"
 
 
-amount = resources
-espresso = MENU['espresso']
-latte = MENU['latte']
-cappuccino = MENU['cappuccino']
-cost = MENU['cost']
+def coffee_type(user_coffee):
+    """Will return the ingredients for user coffee
 
-def make_coffee(coffee):
-    coffee['ingredients']
+    Args:
+        user_coffee (string): either; Latte, espresso, or cappuccino
+
+    Returns:
+        dict: Returns the proper dictionary that the user
+        chose.
+    """
+    if user_coffee == 'espresso':
+        return dict(espresso['ingredients'])
+    elif user_coffee == 'latte':
+        return dict(latte['ingredients'])
+    else:
+        return cappuccino['ingredients']
+
+
+def make_coffee(coffee, total):
+    res = {key: coffee[key] - total.get(key, 0)
+           for key in coffee.keys()}
+    return res
+ 
     
-    
-    
-coffee_type = input("What would you like? (espresso/latte/cappuccino): ").lower()
+
+choose_coffee = input("What would you like? (espresso/latte/cappuccino): ").lower()
+cost = c_menu[choose_coffee]['cost']
+coffee = coffee_type(user_coffee=choose_coffee)
+print((coffee))
+enough = make_coffee(coffee=coffee_type,total= amount)
+
+print(enough)
+
+
