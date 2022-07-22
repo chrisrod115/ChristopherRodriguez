@@ -43,8 +43,7 @@ def coffee_type(user_coffee):
 
 
 def make_coffee(coffee, total):
-    res = {key: coffee[key] - total.get(key, 0)
-           for key in coffee.keys()}
+    res = {key: coffee[key] - total.get(key, 0) for key in coffee.keys()}
     return res
  
     
@@ -55,6 +54,6 @@ coffee = coffee_type(user_coffee=choose_coffee)
 print((coffee))
 enough = make_coffee(coffee=coffee_type,total= amount)
 
-print(enough)
+print(str(enough))
 
 
