@@ -1,4 +1,4 @@
-c_menu = {
+MENU = {
     "espresso": {
         "ingredients": {
             "water": 50,
